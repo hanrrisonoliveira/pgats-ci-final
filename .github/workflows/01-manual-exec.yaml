@@ -33,6 +33,9 @@ jobs:
       - name: Instalação de dependências
         run: npm install
 
+      - name: Correção de vulnerabilidades do npm
+        run: npm audit fix --force  
+
       #execução dos testes
       - name: Execução de testes via Mocha
         run: npm test
