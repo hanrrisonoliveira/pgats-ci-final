@@ -12,7 +12,7 @@ describe('ServicoDePagamento', () => {
         const ultimoPagamento = servicoDePagamento.consultarUltimoPagamento();
 
         // Assert
-        assert.equal(ultimoPagamento.codigoDeBarras, '0987-7656-3475');
+        assert.equal(ultimoPagamento.codigoBarras, '0987-7656-3475');
         assert.equal(ultimoPagamento.empresa, 'Samar');
         assert.equal(ultimoPagamento.valor, 156.87);
         assert.equal(ultimoPagamento.categoria, 'cara');
@@ -29,7 +29,7 @@ describe('ServicoDePagamento', () => {
         const ultimoPagamento = servicoDePagamento.consultarUltimoPagamento();
 
         // Assert
-        assert.equal(ultimoPagamento.codigoDeBarras, '103-15');
+        assert.equal(ultimoPagamento.codigoBarras, '103-15');
         assert.equal(ultimoPagamento.empresa, 'Vivo');
         assert.equal(ultimoPagamento.valor, 100.00);
         assert.equal(ultimoPagamento.categoria, 'padrão');
@@ -47,7 +47,7 @@ describe('ServicoDePagamento', () => {
         const ultimoPagamento = servicoDePagamento.consultarUltimoPagamento();
 
         // Assert
-        assert.equal(ultimoPagamento.codigoDeBarras, '4444-9987');
+        assert.equal(ultimoPagamento.codigoBarras, '4444-9987');
         assert.equal(ultimoPagamento.empresa, 'Receita Federal');
         assert.equal(ultimoPagamento.valor, 200);
         assert.equal(ultimoPagamento.categoria, 'cara');

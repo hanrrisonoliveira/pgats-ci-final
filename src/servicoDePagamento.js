@@ -6,7 +6,7 @@ export default class ServicoDePagamento {
         this.#pagamentos = [];
     }
 
-    pagar(codigoDeBarras, empresa, valor) { // Método
+    pagar(codigoBarras, empresa, valor) { // Método
 
         let categoria = 'padrão';
 
@@ -15,7 +15,7 @@ export default class ServicoDePagamento {
         }
 
         const pagamento = {
-            codigoDeBarras,
+            codigoBarras,
             empresa,
             valor,
             categoria
