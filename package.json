@@ -1,10 +1,10 @@
 {
-  "name": "desafio-aula9-pgats",
+  "name": "pgats-ci-final",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha test/**/*.test.js --reporter mochawesome"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +12,8 @@
   "type": "module",
   "dependencies": {
     "mocha": "^11.7.5"
+  },
+  "devDependencies": {
+    "mochawesome": "^7.1.4"
   }
 }
