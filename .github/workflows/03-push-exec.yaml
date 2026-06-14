@@ -1,0 +1,29 @@
+# CI de disparo via push através da branch main
+
+#nome da pipeline
+name: "Execução por Push"
+
+on:
+  push:
+    branches:
+      - main
+
+#tarefas dentro da pipeline = jobs
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Instalação do Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Instalação de dependências
+        run: npm install
+
+      - name: Execução de testes via Mocha
+        run: npm test
