@@ -1,0 +1,41 @@
+# CI de disparo agendado
+
+#nome da pipeline
+name: "Execução Agendada"
+
+# gatilhos / triggers - regras de disparo
+# gatilho manual = workflow_dispatch
+
+on:
+  schedule:
+  # cronograma de execução
+  # 1 - minuto, 2 - hora, 3 - dia do mês, 4 - mês, 5 - dia da semana
+    - cron: '15 19 * * 0' # Todo domingo às 16:15
+
+#tarefas dentro da pipeline = jobs
+
+jobs:
+  #nome do job
+  test:
+  #maquina onde o job vai rodar
+    runs-on: ubuntu-latest
+
+    #passos do job
+    steps:
+      #clone do projeto
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      #instalação do Node.js
+      - name: Instalação do Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      #instalação de dependências
+      - name: Instalação de dependências
+        run: npm install
+
+      #execução dos testes
+      - name: Execução de testes via Mocha
+        run: npm test
