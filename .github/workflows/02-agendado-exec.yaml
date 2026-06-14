@@ -5,9 +5,11 @@ name: "Execução Agendada"
 
 # gatilhos / triggers - regras de disparo
 # gatilho manual = workflow_dispatch
+# gatilho agendado = schedule
 
 on:
   workflow_dispatch: # execução manual caso a pessoa queira disparar a pipeline fora do cronograma
+
   schedule:
   # cronograma de execução
   # 1 - minuto, 2 - hora, 3 - dia do mês, 4 - mês, 5 - dia da semana
@@ -40,3 +42,11 @@ jobs:
       #execução dos testes
       - name: Execução de testes via Mocha
         run: npm test
+
+      # upload do relatório
+      - name: Upload do relatório Mochawesome
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: relatorio-mochawesome
+          path: mochawesome-report/    

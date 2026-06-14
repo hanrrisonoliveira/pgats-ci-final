@@ -1,7 +1,7 @@
 # CI de disparo manual
 
 #nome da pipeline
-name: Execução Manual
+name: "Execução Manual"
 
 # gatilhos / triggers - regras de disparo
 # gatilho manual = workflow_dispatch
@@ -36,3 +36,11 @@ jobs:
       #execução dos testes
       - name: Execução de testes via Mocha
         run: npm test
+
+      # upload do relatório
+      - name: Upload do relatório Mochawesome
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: relatorio-mochawesome
+          path: mochawesome-report/  
